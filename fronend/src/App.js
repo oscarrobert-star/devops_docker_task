@@ -9,7 +9,7 @@ function App() {
   let [input, setInput] = React.useState('');
   let [message, setMessage] = React.useState('');
 
-  function sendMessage(message) {
+  function sendMessage() {
     console.log(`Sending message: "${input}"`);
     fetch(BACKEND_URL + '/api/msg/' + input, {
       method: 'POST', // or 'PUT'
@@ -21,7 +21,6 @@ function App() {
       })
       .catch((error) => {
         console.error('Error:', error);
-        fetchMessage(13);
       });
   }
 
@@ -42,7 +41,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <form>
+        <div>
           <label>
             Send a message:
             <input
@@ -52,7 +51,7 @@ function App() {
             />
             <button onClick={sendMessage}>Submit</button>
           </label>
-        </form>
+        </div>
         <div><span>Last Message: </span> "<span style={{ color: 'orange' }}>{message}</span>"</div>
       </header>
     </div>
