@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const BACKEND_URL = "http://192.168.252.10:5000/";
+// TODO: point frontend to backend url
+const BACKEND_URL = "";
 
 function App() {
   let [input, setInput] = React.useState('');
