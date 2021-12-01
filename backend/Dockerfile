@@ -9,9 +9,7 @@ RUN pip3 install python-dotenv
 RUN export FLASK_APP=main.py
 
 RUN chmod u+x startup.sh
-# RUN export DATABASE_URL='postgresql://ajua:ajuapass@localhost:5432/ajua'
-# RUN flask db init
-# RUN flask db migrate
-# RUN flask db upgrade
 
+EXPOSE 5432
+EXPOSE 5000
 CMD [ "./startup.sh" ]
