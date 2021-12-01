@@ -2,8 +2,10 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+require('dotenv').config()
+
 // TODO: point frontend to backend url
-const BACKEND_URL = "";
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   let [input, setInput] = React.useState('');
@@ -13,6 +15,10 @@ function App() {
     console.log(`Sending message: "${input}"`);
     fetch(BACKEND_URL + '/api/msg/' + input, {
       method: 'POST', // or 'PUT'
+      body: JSON.stringify({message: input}),
+      headers:{
+        'Content-Type': 'application/json'
+      }
     })
       .then(response => response.json())
       .then(data => {
